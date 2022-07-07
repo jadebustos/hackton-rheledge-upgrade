@@ -13,11 +13,7 @@ The image has been deployed using a [kickstartfile](rhel8edge.ks) which deploys 
 
 A RHEL 8 server was used to create the image.
 
-After RHEL8 server boots, ssh to it using **core** user and **edge** password and pull the container image:
-
-```
-[core@upgrade ~]$ podman pull quay.io/rhte_2019/2048-demoday:latest
-```
+After RHEL8 server boots, ssh to it using **core** user and **edge** password.
 
 The pre-pull systemd unit is not working properly but hackaton purpouse is not to fix that.
 
@@ -93,7 +89,7 @@ Where:
 
 When the server boots:
 
-Check if the upgrade was successfull and delete the old repository:
+Check if the upgrade was successful and delete the old repository:
 
 ```
 [root@upgrade ~]# ostree remote delete edge

@@ -213,8 +213,10 @@ EOF
 # pre-pull the container images at startup to avoid delay in http response
 cat > /var/home/core/.config/systemd/user/pre-pull-container-image.service <<EOF
 [Service]
-Type=oneshot
+Type=simple
 ExecStart=podman pull quay.io/rhte_2019/2048-demoday:latest
+RestartSec=30
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target default.target
