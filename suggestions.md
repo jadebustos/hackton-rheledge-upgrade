@@ -13,12 +13,12 @@ We should include a way to handle RHEL lifecycle updates using the httpd reposit
 In the procedure instead of **Adjust the /etc/ostree/remotes.d/*.repo to point to the httpd server.** the new repo should be added using the specific commands:
 
 ```
-[root@upgrade ~]# ostree remote add --set=url=http://192.168.122.1/ostree-rhel9/repo/ --set=gpg-verify=false rhel9 http://192.168.122.1/ostree-rhel9/repo/
+[root@upgrade ~]# ostree remote add --set=url=http://192.168.122.1/ostree-rhel9/repo/ --set=gpg-verify=false edge http://192.168.122.1/ostree-rhel9/repo/
 [root@upgrade ~]# cat /etc/ostree/remotes.d/edge.conf 
 [remote "edge"]
 url=http://192.168.122.1/ostree/repo/
 gpg-verify=false
-[root@upgrade ~]# ostree remote show-url rhel9
+[root@upgrade ~]# ostree remote show-url edge
 http://192.168.122.1/ostree-rhel9/repo/
 [root@upgrade ~]# ostree remote list
 edge
