@@ -87,5 +87,3 @@ Where:
 * **rhel9** is the repo name.
 * **rhel/9/x86_64/edge** is the reference that can be found on **compose.json** file within the ostree repository.
 
-
-
