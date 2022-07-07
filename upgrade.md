@@ -89,12 +89,6 @@ Where:
 
 When the server boots:
 
-Check if the upgrade was successful and delete the old repository:
-
-```
-[root@upgrade ~]# ostree remote delete edge
-```
-
 Check the current ostree version:
 
 ```
@@ -103,7 +97,6 @@ State: idle
 AutomaticUpdates: stage; rpm-ostreed-automatic.timer: no runs since boot
 Deployments:
 ● edge:rhel/8/x86_64/edge
-        OstreeRemoteStatus: Remote "edge" not found
                    Version: 8.6 (2022-07-07T08:54:42Z)
                     Commit: 94062cfbbd3af0c586738ab71507057cbadc7fbf6ffd1512b22b85713627fcba
 
@@ -111,5 +104,21 @@ Deployments:
                    Version: 9.0 (2022-07-07T09:34:18Z)
                     Commit: b56cc17c4b524d1a9b1ea6cf870bf457dcb86e0e47f25656b770dcf3061aa2b0
 [core@upgrade ~]$ 
+```
+
+Check if the upgrade was successful and delete the old repository:
+
+```
+[root@upgrade ~]# ostree remote delete edge
+```
+
+Or perform the rollback:
+
+```
+[root@upgrade ~]# rpm-ostree rollback
+Moving '94062cfbbd3af0c586738ab71507057cbadc7fbf6ffd1512b22b85713627fcba.0' to be first deployment
+Transaction complete; bootconfig swap: yes; bootversion: boot.0.1, deployment count change: 0
+Changes queued for next boot. Run "systemctl reboot" to start a reboot
+[root@upgrade ~]# systemctl reboot
 ```
 
