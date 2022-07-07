@@ -69,10 +69,6 @@ rhel9
 ```
 
 ```
-[root@upgrade ~]# ostree remote delete edge
-```
-
-```
 [root@upgrade ~]# rpm-ostree status
 State: idle
 AutomaticUpdates: stage; rpm-ostreed-automatic.timer: no runs since boot
@@ -96,6 +92,14 @@ Where:
 * **rhel/9/x86_64/edge** is the reference that can be found on **compose.json** file within the ostree repository.
 
 When the server boots:
+
+Check if the upgrade was successfull and delete the old repository:
+
+```
+[root@upgrade ~]# ostree remote delete edge
+```
+
+Check the current ostree version:
 
 ```
 [core@upgrade ~]$ rpm-ostree status
