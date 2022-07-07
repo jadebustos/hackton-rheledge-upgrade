@@ -25,7 +25,7 @@ edge
 rhel9
 ```
 
-and the old ostree repo needs to be deleted if the upgrade was successful:
+and the old ostree repo can be deleted if the upgrade was successful:
 
 ```
 [root@upgrade ~]# ostree remote delete edge
