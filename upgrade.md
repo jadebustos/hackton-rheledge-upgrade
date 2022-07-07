@@ -13,6 +13,14 @@ The image has been deployed using a [kickstartfile](rhel8edge.ks) which deploys 
 
 A RHEL 8 server was used to create the image.
 
+After RHEL8 server boots, ssh to it using **core** user and **edge** password and pull the container image:
+
+```
+[core@upgrade ~]$ podman pull quay.io/rhte_2019/2048-demoday:latest
+```
+
+The pre-pull systemd unit is not working properly but hackaton purpouse is not to fix that.
+
 ## RHEL 9 image
 
 To upgrade the above a RHEL 9 image has been built with the same packages.
@@ -86,4 +94,22 @@ Where:
 
 * **rhel9** is the repo name.
 * **rhel/9/x86_64/edge** is the reference that can be found on **compose.json** file within the ostree repository.
+
+When the server boots:
+
+```
+[core@upgrade ~]$ rpm-ostree status
+State: idle
+AutomaticUpdates: stage; rpm-ostreed-automatic.timer: no runs since boot
+Deployments:
+● edge:rhel/8/x86_64/edge
+        OstreeRemoteStatus: Remote "edge" not found
+                   Version: 8.6 (2022-07-07T08:54:42Z)
+                    Commit: 94062cfbbd3af0c586738ab71507057cbadc7fbf6ffd1512b22b85713627fcba
+
+  rhel9:rhel/9/x86_64/edge
+                   Version: 9.0 (2022-07-07T09:34:18Z)
+                    Commit: b56cc17c4b524d1a9b1ea6cf870bf457dcb86e0e47f25656b770dcf3061aa2b0
+[core@upgrade ~]$ 
+```
 
